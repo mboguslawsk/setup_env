@@ -17,11 +17,16 @@ fi
 
 export PS1="\[\e[32m\]\u@\h:\[\e[34m\]\w\[\e[0m\]\$ "
 
-# Enable color support for ls and grep commands, if available
+# enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
-    eval "$(dircolors -b)"
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
     alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
 fi
 
 # Some useful aliases
